@@ -1,15 +1,15 @@
 __author__ = 'Danyang'
-def memoize(f):
+def memoize(func):
     """
     the function must not modify or rely on external state 
     the function should be stateless. 
-    usage: @memoize(function) as function annotation
+    usage: @memoize as function annotation
 
-    :param f: the function, whose result you would like to cached based on input arguments
+    :param func: the function, whose result you would like to cached based on input arguments
     """
     cache = {}
     def ret(*args):
         if args not in cache:
-            cache[args] = f(*args)
+            cache[args] = func(*args)
         return cache[args]
     return ret

@@ -9,7 +9,6 @@ def Override(interface_class):
     :exception: AssertionError
     :return: method
     """
-
     def overrider(method):
         try:
             assert (method.__name__ in dir(interface_class))
@@ -27,8 +26,9 @@ def Deprecated(func, msg=None):
     A decorator which can be used to mark functions
     as deprecated.It will result in a deprecation warning being shown
     when the function is used.
+    :param func: the function decorated
+    :param msg: message issued when warning deprecating
     """
-
     message = msg or "Use of deprecated function '{}`.".format(func.__name__)
 
     @functools.wraps(func)
